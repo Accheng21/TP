@@ -5,7 +5,8 @@ class Maze:
         self.width = width
         self.height = height
         self.walls = []
-
+        self.entrance = [0,0]
+        self.exit = [self.height-1,self.width-1]
         #u means unvisited, white means it's a path, black means wall
         #coloring reasons changed for 112 graphics
 
@@ -249,19 +250,22 @@ class Maze:
         # Set entrance and exit
         for i in range(0, self.width):
             if (self.maze[1][i] == 'white'):
-                self.maze[0][i] = 'white'
+                self.maze[0][i] = 'blue'
+                self.entrance = [0,i]
                 break
 
         for i in range(self.width-1, 0, -1):
             if (self.maze[self.height-2][i] == 'white'):
-                self.maze[self.height-1][i] = 'white'
+                self.maze[self.height-1][i] = 'green'
+                self.exit = [self.height-1, i]
                 break
 
-        for i in range (self.height):
-            for j in range(self.width):
-                if self.maze[i][j] == 'black':
-                    self.maze[i][j] == 'black'
-                elif self.maze[i][j] == 'white':
-                    self.maze[i][j] == 'white'
-                    
         return self.maze
+
+    #get entrance location
+    def getEntranceLoc(self):
+        return self.entrance[0], self.entrance[1]
+
+    #get exit location
+    def getExitLoc(self):
+        return self.exit[0], self.exit[1]
