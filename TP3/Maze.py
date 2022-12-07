@@ -9,7 +9,7 @@ class Maze:
         self.exit = [self.height-1,self.width-1]
         #u means unvisited, white means it's a path, black means wall
         #coloring reasons changed for 112 graphics
-
+        self.pathSoFar = []
         self.maze = [["u" for i in range(self.width)] for j in 
         range(self.height)] # start with all unvisited according to algo
     
@@ -269,3 +269,4 @@ class Maze:
     #get exit location
     def getExitLoc(self):
         return self.exit[0], self.exit[1]
+
