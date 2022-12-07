@@ -250,7 +250,7 @@ class Maze:
         # Set entrance and exit
         for i in range(0, self.width):
             if (self.maze[1][i] == 'white'):
-                self.maze[0][i] = 'blue'
+                self.maze[0][i] = 'green'
                 self.entrance = [0,i]
                 break
 
